@@ -1,0 +1,39 @@
+
+<br>
+<div class="container">
+    <div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name </label>
+        <input type="text" class="form-control" id="username" required [(ngModel)]="model.username" name="name"
+          #name="ngModel">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          Name is required
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="password">Contraseña nueva </label>
+        <input type="text" class="form-control" id="alterEgo" [(ngModel)]="model.newpassword" name="alterEgo">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="password">Confirmar Contraseña </label>
+        <input type="text" class="form-control" id="alterEgo" [(ngModel)]="model.cpassword" name="alterEgo">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="equipo">Equipo </label>
+        <select class="form-control" id="power" required [(ngModel)]="model.equipo" name="power" #power="ngModel">
+          <option *ngFor="let pow of equipo" [value]="pow">{{pow}}</option>
+        </select>
+        <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+          Power is required
+        </div>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+      &nbsp;&nbsp;
+      <button type="button" class="btn btn-default" (click)="newHero()">Reiniciar</button>
+    </form>
+  </div>

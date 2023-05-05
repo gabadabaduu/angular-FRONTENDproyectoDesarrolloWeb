@@ -1,7 +1,94 @@
-body {
+.main {
 margin: 0;
 padding: 0;
-background: #DCE35B;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #45B649, #DCE35B);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #45B649, #DCE35B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */   
+background: #5A3F37;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #2C7744, #5A3F37);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #2C7744, #5A3F37); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+height: 100%;
+}
+
+.fade-in {
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;
+  font-size: 75px;
+  animation: fade-in 5s ease-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in2 {
+ 
+  animation: fade-in 5s ease-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+p{
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;
+  text-shadow:  rgba( 0, 0, 0, 0.2); 
+  font-size: 13px;
+}
+h6{
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;
+  text-shadow:  rgba( 0, 0, 0, 0.2); 
+}
+
+h4{
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;
+  text-shadow:  rgba( 0, 0, 0, 0.2); 
+}
+
+a:link, a:visited {
+    background-color: #033f05;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Josefin Sans', sans-serif;
+    box-shadow: 0px 15px 20px rgba( 0, 0, 0, 0.2); 
+  }
+  a:hover, a:active {
+    background-color: #07811b;
+    transform: scale(0.98)
+  }
+
+section{
+    display: flex;
+    width: 600px;
+    height: 430px;
+}
+
+section img{
+    width: 0px;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .8;
+    transition: .5s ease;
+}
+
+section image:hover{
+    cursor: crosshair;
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%);
 }

@@ -1,0 +1,38 @@
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a routerLink="/Crear-Cancha">Crear Cancha</a></li>
+            <li><a routerLink="/Revervar">Reservar Cancha</a></li>
+            <li><a routerLink="/Cancelar">Cancelar Reserva</a></li>
+            <li><a href="#"><i class="fas fa-project-diagram"></i>Cerrar Sesion</a></li>
+            
+        </ul> 
+    
+    </div>
+    <div class="main_content">
+        <div class="header">Bienvenido al gestor de canchas.</div>  
+        <div class="info">
+          <div>Porfavor Selectionar la cancha que desea para conocer su información</div>
+          <div class="form-group">
+            <label for="equipo"></label>
+            <select class="form-control" id="equipo"
+                    required
+                    [(ngModel)]="model.equipo" name="equipo"
+                    #power="ngModel">
+              <option *ngFor="let pow of canchas" [value]="pow">{{pow}}</option>
+            </select>
+            <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+              Power is required
+            </div>
+        <br>
+        <br>
+        <p>Nombre: xxxxxxxxxxx</p>
+        <p>Capacidad Maxima: xxxxxxxxxx</p>
+        <br>
+        <br>
+            <app-calendario></app-calendario>
+        </div>
+      </div>
+    </div>
+</div>
