@@ -4,6 +4,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { CommonModule } from '@angular/common';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
 import { HomepageComponent } from './Pages/homepage/homepage.component';
 import { SantiagoComponent } from './Pages/Canchas/Canchas-nO-USAR/santiago/santiago.component';
 import { BuenosAiresComponent } from './Pages/Canchas/Canchas-nO-USAR/buenos-aires/buenos-aires.component';
@@ -46,8 +51,12 @@ import { CalendarioComponent } from './Pages/Canchas/calendario/calendario.compo
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    CommonModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
