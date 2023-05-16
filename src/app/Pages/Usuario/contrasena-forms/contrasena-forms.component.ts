@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { password } from 'src/app/reiniciar_password'
+import { password } from 'src/app/Modelo/reiniciar_password'
 
 @Component({
   selector: 'app-contrasena-forms',

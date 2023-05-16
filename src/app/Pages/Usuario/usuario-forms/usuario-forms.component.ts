@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Usuario } from 'src/app/usuario';
+import { Usuario } from 'src/app/Modelo/usuario';
 
 @Component({
   selector: 'app-usuario-forms',
