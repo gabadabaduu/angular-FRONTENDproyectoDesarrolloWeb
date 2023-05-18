@@ -7,7 +7,7 @@ import { canchas } from 'src/app/Modelo/canchas';
   styleUrls: ['./canchas.component.css']
 })
 export class CanchasComponent {
-  equipos = ['Campin', 'Santiago Bernabeu', ' Ciudad Vinotinto', 'Buenos Aires'];
+  cancha = ['Campin', 'Santiago Bernabeu', ' Ciudad Vinotinto', 'Buenos Aires'];
 
-  model = new canchas(18, 'Ciudad Vinotinto', '8:00 AM', 'Millos');
+  model = new canchas(18, 'fecha', 'nombre de cancha', 7, 15);
 }

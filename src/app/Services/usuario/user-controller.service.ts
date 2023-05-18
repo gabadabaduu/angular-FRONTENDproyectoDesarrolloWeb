@@ -10,22 +10,25 @@ export class UserControllerService {
 
   constructor(private http: HttpClient) { }
 
-  public getData() {
-    return this.http.get('http://localhost:8080/Reserva?fecha=02/10/22&horai=7&horaf=23&usuario=Reservas1&cancha=C3')
+  getData(fecha: string, horaInicio: number, horaFin: number, nombreUsuario: string, nombreCancha: string) {
+    const url = `http://localhost:8080/Reserva?fecha=${fecha}&horai=${horaInicio}&horaf=${horaFin}&usuario=${nombreUsuario}&cancha=${nombreCancha}`;
+    return this.http.get(url);
   }
 
   login(username: string, password: string) {
     const credentials = { username, password };
-    return this.http.post('http://localhost:8080/Reserva?fecha=02/10/22&horai=7&horaf=23&usuario=Reservas1&cancha=C3', credentials);
+    return this.http.post('http://localhost:8080/Reserva', credentials);
   }
+  
   
   crearUsuario(username: string, password: string) {
     const nuevoUsuario = { username, password };
-    return this.http.post('http://localhost:8080/Reserva?fecha=02/10/22&horai=7&horaf=23&usuario=Reservas1&cancha=C3', nuevoUsuario);
+    return this.http.post('http://localhost:8080/Reserva/crearUsuario', nuevoUsuario);
   }
   
-  logOut()
-  {
-    return this.http.post('http://localhost:8080/Reserva?fecha=02/10/22&horai=7&horaf=23&usuario=Reservas1&cancha=C3', null);
+  
+  logOut() {
+    return this.http.post('http://localhost:8080/Reserva/logout', null);
   }
+  
 }

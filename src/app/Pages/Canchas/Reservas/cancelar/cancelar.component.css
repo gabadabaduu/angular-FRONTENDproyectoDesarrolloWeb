@@ -1,16 +1,71 @@
 .main {
-    margin: 0;
-    padding: 0;
-    background: #5A3F37;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #2C7744, #5A3F37);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #2C7744, #5A3F37); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #5A3F37;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #2C7744, #5A3F37);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #2C7744, #5A3F37); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100%;
+  }
+
+  h2{
+      font-family: 'Josefin Sans', sans-serif;
+      color: white;
+      text-shadow:  rgba( 0, 0, 0, 0.2); 
+  }
+  
+  a:link, a:visited {
+      background-color: #033f05;
+      color: white;
+      border-radius: 10px;
+      padding: 10px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-family: 'Josefin Sans', sans-serif;
+      box-shadow: 0px 15px 20px rgba( 0, 0, 0, 0.2);
+  
+    }
+    a:hover, a:active {
+      background-color: #07811b;
+      transform: scale(0.98)
     }
 
-    h2{
-        font-family: 'Josefin Sans', sans-serif;
-        color: white;
-        text-shadow:  rgba( 0, 0, 0, 0.2); 
+    .container{
+      background: #1c1d1b;
+      border-radius: 10px;
+      padding: 10px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-family: 'Josefin Sans', sans-serif;
+      box-shadow: 0px 15px 20px rgba( 0, 0, 0, 0.2);
+    }
+  
+    option{
+      background-color: wheat;
+    }
+    
+    .btn{
+      background-color: #033f05;
+      color: white;
+      border-radius: 10px;
+      padding: 10px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-family: 'Josefin Sans', sans-serif;
+      box-shadow: 0px 15px 20px rgba( 0, 0, 0, 0.2);
+    }
+    
+    .form-group{
+      color: white;
+      border-radius: 10px;
+      padding: 10px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-family: 'Josefin Sans', sans-serif;
+    
     }
     
     a:link, a:visited {

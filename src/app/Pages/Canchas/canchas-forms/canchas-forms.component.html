@@ -5,7 +5,7 @@
           <label for="name"></label>
           <input type="text" class="form-control" id="name"
                  required
-                 [(ngModel)]="model.name" name="name"
+                 [(ngModel)]="model.nombreCancha" name="name"
                  #name="ngModel">
           <div [hidden]="name.valid || name.pristine"
                class="alert alert-danger">
@@ -14,31 +14,8 @@
         </div>
         <br>
         <br>
-        <div class="form-group">
-          <label for="equipo"></label>
-          <select class="form-control" id="equipo"
-                  required
-                  [(ngModel)]="model.equipo" name="equipo"
-                  #power="ngModel">
-            <option *ngFor="let pow of equipo" [value]="pow">{{pow}}</option>
-          </select>
-          <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
-            Se necesita seleccionar un equipo
-          </div>
-        </div>
         <br>
-        <div class="form-group 1">
-          <label for="equipo2"></label>
-          <select class="form-control" id="equipo2"
-                  required
-                  [(ngModel)]="model.equipo" name="equipo"
-                  #power="ngModel">
-            <option *ngFor="let pow of equipo" [value]="pow">{{pow}}</option>
-          </select>
-          <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
-            Se necesita seleccionar otro equipo
-          </div>
-        </div>
+
         <br>
         <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
         &nbsp;&nbsp;

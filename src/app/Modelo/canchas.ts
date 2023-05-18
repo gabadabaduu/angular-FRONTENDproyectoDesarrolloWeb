@@ -2,9 +2,10 @@ export class canchas {
 
     constructor(
       public id: number,
-      public name: string,
-      public horarios: string,
-      public equipo: string
+      public fecha: string,
+      public nombreCancha: string,
+      public horaInicio: number,
+      public horaFin: number
     ) {  }
   
   }
