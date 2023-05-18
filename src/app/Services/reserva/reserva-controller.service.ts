@@ -23,7 +23,7 @@ export class ReservaControllerService {
 }
 
 cancelarReserva(username: string, password: string, fecha: string, horaInicio: number, horaFin: number, nombreUsuario: string, nombreCancha: string) {
-  const url = `http://localhost:8080/Reserva/cancelarReserva`;
+  const url = `http://localhost:8080/Reserva`;
   const credentials = { username, password };
   const body = { fecha, horaInicio, horaFin, nombreUsuario, nombreCancha };
 

@@ -29,3 +29,53 @@
         background-color: #07811b;
         transform: scale(0.98)
       }
+      .container{
+        background: #1c1d1b;
+        border-radius: 10px;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-family: 'Josefin Sans', sans-serif;
+        box-shadow: 0px 15px 20px rgba( 0, 0, 0, 0.2);
+      }
+      
+      .btn{
+        background-color: #033f05;
+        color: white;
+        border-radius: 10px;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-family: 'Josefin Sans', sans-serif;
+        box-shadow: 0px 15px 20px rgba( 0, 0, 0, 0.2);
+      }
+      
+      .form-group{
+        color: white;
+        border-radius: 10px;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-family: 'Josefin Sans', sans-serif;
+      
+      }
+      
+      a:link, a:visited {
+          background-color: #033f05;
+          color: white;
+          border-radius: 10px;
+          padding: 10px 25px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-family: 'Josefin Sans', sans-serif;
+          box-shadow: 0px 15px 20px rgba( 0, 0, 0, 0.2);
+      
+        }
+        a:hover, a:active {
+          background-color: #07811b;
+          transform: scale(0.98)
+        }

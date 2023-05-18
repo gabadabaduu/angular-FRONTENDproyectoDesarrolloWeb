@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { canchas } from 'src/app/Modelo/canchas';
+import { CanchaControllerService } from 'src/app/Services/Cancha/cancha-controller.service';
+import { UserControllerService } from 'src/app/Services/usuario/user-controller.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-canchas-forms',
@@ -7,28 +10,45 @@ import { canchas } from 'src/app/Modelo/canchas';
   styleUrls: ['./canchas-forms.component.css']
 })
 export class CanchasFormsComponent {
-  equipo = ['Real Madrid', 'Barcelona', 'La Vinotinto', 'Millos'];
+  showSuccessMessage: boolean = false;
+  successMessage: string = '';
+  showErrorMessage: boolean = false;
+  errorMessage: string = '';
+
   canchas = ['Campin', 'Santiago Bernabeu', ' Ciudad Vinotinto', 'Buenos Aires'];
 
-model = new canchas(18, 'Nombre de la Cancha', 'Equipo 1', 5,12);
+  model = new canchas(18, 'Nombre de la Cancha', 'Equipo 1', 5, 12);
 
-submitted = false;
+  submitted = false;
 
-onSubmit() { this.submitted = true; }
+  constructor(private canchaController: CanchaControllerService, private userControllerService: UserControllerService, private router: Router) {}
 
+  onSubmit() {
+    const fecha = '2023-05-18';
+    const nombreCancha = 'Nombre de la cancha';
+    const horaInicio = 8;
+    const horaFin = 10;
 
-newSubmit() {
-this.model = new canchas(42,'Nombre de la Cancha','Equipo 1', 1, 2);
-}
+    this.canchaController.crearCancha(fecha, nombreCancha, horaInicio, horaFin).subscribe(
+      response => {
+        // Procesar la respuesta aquí
+        console.log(response);
+          // Actualizar la interfaz de usuario
+          this.showSuccessMessage = true;
+          this.successMessage = 'Cancha creada con éxito';
+          // Redirigir a otra página
+          this.router.navigate(['/Canchas']);
+      },
+      error => {
+        // Manejar el error aquí
+        console.error(error);
+        this.showErrorMessage = true;
+        this.errorMessage = 'Error al crear cancha. Por favor, inténtelo nuevamente.';
+      }
+    );
+  }
 
-
-//////// NOT SHOWN IN DOCS ////////
-
-// Reveal in html:
-//   Name via form.controls = {{showFormControls(heroForm)}}
-showFormControls(form: any) {
-return form && form.controls.name &&
-form.controls.name.value; // Dr. IQ
-}
-
+  newSubmit() {
+    this.model = new canchas(42, 'Nombre de la Cancha', 'Equipo 1', 1, 2);
+  }
 }

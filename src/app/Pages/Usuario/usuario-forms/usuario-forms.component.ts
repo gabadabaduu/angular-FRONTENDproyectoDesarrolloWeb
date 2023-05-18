@@ -28,6 +28,8 @@ constructor(private UserController : UserControllerService){}
       );
   }
 
+  
+
   newHero() {
   this.model = new Usuario(42,'Usuario','Contraseña');
   }
