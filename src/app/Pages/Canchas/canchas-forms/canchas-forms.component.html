@@ -2,51 +2,23 @@
     <div [hidden]="submitted">
       <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
         <div class="form-group">
-          <label for="name">Name</label>
+          <label for="name"></label>
           <input type="text" class="form-control" id="name"
                  required
-                 [(ngModel)]="model.name" name="name"
+                 [(ngModel)]="model.nombreCancha" name="name"
                  #name="ngModel">
           <div [hidden]="name.valid || name.pristine"
                class="alert alert-danger">
-            Name is required
+            Por favor ingrese el nombre del equipo correctamente
           </div>
         </div>
         <br>
-        <div class="form-group">
-          <label for="horarios">Horarios</label>
-          <input type="text" class="form-control" id="horarios"
-                 [(ngModel)]="model.horarios" name="horarios">
-        </div>
         <br>
-        <div class="form-group">
-          <label for="equipo">equipo 1</label>
-          <select class="form-control" id="equipo"
-                  required
-                  [(ngModel)]="model.equipo" name="equipo"
-                  #power="ngModel">
-            <option *ngFor="let pow of equipo" [value]="pow">{{pow}}</option>
-          </select>
-          <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
-            Power is required
-          </div>
-        </div>
         <br>
-        <div class="form-group">
-          <label for="equipo">equipo 2</label>
-          <select class="form-control" id="equipo"
-                  required
-                  [(ngModel)]="model.equipo" name="equipo"
-                  #power="ngModel">
-            <option *ngFor="let pow of equipo" [value]="pow">{{pow}}</option>
-          </select>
-          <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
-            Power is required
-          </div>
-        </div>
+
         <br>
         <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
         &nbsp;&nbsp;
-        <button type="button" class="btn btn-default" (click)="newHero()">Reiniciar</button>
+        <button type="button" class="btn btn-default" (click)="newSubmit()">Reiniciar</button>
       </form>
     </div>

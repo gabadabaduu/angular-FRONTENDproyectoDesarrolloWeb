@@ -1,20 +1,45 @@
 <div class="main">
-    <br>
-    <br>
-    <br>
-    <br>
+    <br><br>
     <div style="text-align: center;">
-        <h2>Registrate</h2>
-    <app-usuario-forms></app-usuario-forms>
+      <h2>Registrate</h2>
+      <div class="container">
+        <div [hidden]="submitted">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name"></label>
+              <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
+              <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                Por favor ingrese el usuario correcto
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="password"></label>
+              <input type="text" class="form-control" id="alterEgo" [(ngModel)]="model.password" name="password">
+            </div>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-success">Ingresar</button>
+            &nbsp;&nbsp;
+            <button type="button" class="btn btn-default" (click)="newUsuario()">Reiniciar</button>
+          </form>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    
-</div>
+  </div>
+  

@@ -4,7 +4,6 @@ export class password {
         public username: string,
       public newpassword: string,
       public cpassword: string,
-      public equipo: string
     ) {  }
   
   }

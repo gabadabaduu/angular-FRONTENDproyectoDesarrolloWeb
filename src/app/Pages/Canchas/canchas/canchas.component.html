@@ -18,9 +18,9 @@
             <label for="equipo"></label>
             <select class="form-control" id="equipo"
                     required
-                    [(ngModel)]="model.equipo" name="equipo"
+                    [(ngModel)]="model.nombreCancha" name="equipo"
                     #power="ngModel">
-              <option *ngFor="let pow of canchas" [value]="pow">{{pow}}</option>
+              <option *ngFor="let pow of cancha" [value]="pow">{{pow}}</option>
             </select>
             <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
               Power is required
@@ -31,7 +31,7 @@
         <p>Capacidad Maxima: xxxxxxxxxx</p>
         <br>
         <br>
-            <app-calendario></app-calendario>
+          <app-calendario></app-calendario>
         </div>
       </div>
     </div>

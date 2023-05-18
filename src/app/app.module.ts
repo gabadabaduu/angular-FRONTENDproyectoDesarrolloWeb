@@ -4,6 +4,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { CommonModule } from '@angular/common';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
 import { HomepageComponent } from './Pages/homepage/homepage.component';
 import { SantiagoComponent } from './Pages/Canchas/Canchas-nO-USAR/santiago/santiago.component';
 import { BuenosAiresComponent } from './Pages/Canchas/Canchas-nO-USAR/buenos-aires/buenos-aires.component';
@@ -19,7 +25,8 @@ import { CanchasFormsComponent } from './Pages/Canchas/canchas-forms/canchas-for
 import { RevervarComponent } from './Pages/Canchas/Reservas/revervar/revervar.component';
 import { CrearCanchaComponent } from './Pages/Canchas/crear-cancha/crear-cancha.component';
 import { CancelarComponent } from './Pages/Canchas/Reservas/cancelar/cancelar.component';
-import { CalendarioComponent } from './Pages/Canchas/calendario/calendario.component';
+import { CalendarioComponent } from './Pages/calendario/calendario.component';
+import { MenuNavComponent } from './Pages/menu-nav/menu-nav.component';
 
 @NgModule({
   declarations: [
@@ -39,15 +46,21 @@ import { CalendarioComponent } from './Pages/Canchas/calendario/calendario.compo
     RevervarComponent,
     CrearCanchaComponent,
     CancelarComponent,
-    CalendarioComponent
+    CalendarioComponent,
+    MenuNavComponent
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    CommonModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

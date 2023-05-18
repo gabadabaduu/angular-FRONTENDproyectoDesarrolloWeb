@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { canchas } from 'src/app/canchas';
+import { canchas } from 'src/app/Modelo/canchas';
 
 @Component({
   selector: 'app-canchas',
@@ -7,7 +7,7 @@ import { canchas } from 'src/app/canchas';
   styleUrls: ['./canchas.component.css']
 })
 export class CanchasComponent {
-  canchas = ['Campin', 'Santiago Bernabeu', ' Ciudad Vinotinto', 'Buenos Aires'];
+  cancha = ['Campin', 'Santiago Bernabeu', ' Ciudad Vinotinto', 'Buenos Aires'];
 
-  model = new canchas(18, 'Ciudad Vinotinto', '8:00 AM', 'Millos');
+  model = new canchas(18, 'fecha', 'nombre de cancha', 7, 15);
 }
