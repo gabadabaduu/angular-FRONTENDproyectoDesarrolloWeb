@@ -9,9 +9,7 @@ import { password } from 'src/app/Modelo/reiniciar_password'
 })
 export class ContrasenaFormsComponent {
 
-  equipo = ['Real madrid', 'messi', 'bicho', 'Barcelona'];
-
-  model = new password('Mario ', 'Luigi', 'dhgfowh', 'Ciudad Vinotinto');
+  model = new password('Mario ', 'Luigi', 'dhgfowh');
   
   submitted = false;
   
@@ -19,14 +17,13 @@ export class ContrasenaFormsComponent {
   
   
   newHero() {
-  this.model = new password('','hola','', '');
+  this.model = new password('nombre','nombre de usuario','Contraseña');
   }
   
   skyDog(): password {
   const mypassword =  new password('gug', 'SkyDog',
-                     'Fetch any object at any distance',
-                     'Leslie Rollover');
-  console.log('My hero is called ' + mypassword.username); // "My hero is called SkyDog"
+                     'Fetch any object at any distance');
+  console.log('este usuario es' + mypassword.username); // "My hero is called SkyDog"
   return mypassword;
   }
   

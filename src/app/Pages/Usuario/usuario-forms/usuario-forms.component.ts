@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { UserControllerService } from 'src/app/Services/usuario/user-controller.service';
 import { Usuario } from 'src/app/Modelo/usuario';
 
 @Component({
@@ -8,34 +8,36 @@ import { Usuario } from 'src/app/Modelo/usuario';
   styleUrls: ['./usuario-forms.component.css']
 })
 export class UsuarioFormsComponent {
-  cancha = ['Real madrid', 'messi', 'bicho', 'Barcelona'];
 
-  model = new Usuario(18, 'Mario Luigi', 'dhgfowh', 'Ciudad Vinotinto');
+constructor(private UserController : UserControllerService){}
+
+  model = new Usuario(18, 'Usuario', 'Contraseña');
   
   submitted = false;
   
-  onSubmit() { this.submitted = true; }
-  
-  
+  onSubmit() {
+    this.UserController.login(this.model.name, this.model.password)
+      .subscribe(
+        response => {
+          // Manejar la respuesta del backend en caso de éxito
+          
+        },
+        error => {
+          // Manejar el error en caso de fallo
+        }
+      );
+  }
+
   newHero() {
-  this.model = new Usuario(42,'hola','', '');
+  this.model = new Usuario(42,'Usuario','Contraseña');
   }
   
-  skyDog(): Usuario {
-  const myUsuario =  new Usuario(42, 'SkyDog',
-                     'Fetch any object at any distance',
-                     'Leslie Rollover');
-  console.log('My hero is called ' + myUsuario.name); // "My hero is called SkyDog"
+  VUsuario(): Usuario {
+  const myUsuario =  new Usuario(42, 'Maria',
+                     '12345678');
+  console.log('Bienvenido ' + myUsuario.name); // "My hero is called SkyDog"
   return myUsuario;
   }
   
-  //////// NOT SHOWN IN DOCS ////////
   
-  // Reveal in html:
-  //   Name via form.controls = {{showFormControls(heroForm)}}
-  showFormControls(form: any) {
-  return form && form.controls.name &&
-  form.controls.name.value; // Dr. IQ
-  
-  }
 }
