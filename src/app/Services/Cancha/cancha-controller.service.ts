@@ -9,13 +9,13 @@ export class CanchaControllerService {
 
   constructor(private http: HttpClient) { }
 
-  getData(fecha: string, horaInicio: number, horaFin: number, nombreUsuario: string, nombreCancha: string) {
-    const url = `http://localhost:8080/Canchas?fecha=${fecha}&horai=${horaInicio}&horaf=${horaFin}&usuario=${nombreUsuario}&cancha=${nombreCancha}`;
+  getData(nombreCancha: string) {
+    const url = `jdbc:mysql://66.70.137.253:3306/grupo1/Canchas`;
     return this.http.get(url);
   }
 
   crearCancha(fecha: string, nombreCancha: string, horaInicio: number, horaFin: number) {
-    const url = `http://localhost:8080/Canchas`;
+    const url = `jdbc:mysql://66.70.137.253:3306/grupo1/Canchas`;
     const body = {
       fecha: fecha,
       nombreCancha: nombreCancha,

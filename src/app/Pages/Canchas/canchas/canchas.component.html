@@ -16,20 +16,18 @@
           <div>Porfavor Selectionar la cancha que desea para conocer su información</div>
           <div class="form-group">
             <label for="equipo"></label>
-            <select class="form-control" id="equipo"
-                    required
-                    [(ngModel)]="model.nombreCancha" name="equipo"
-                    #power="ngModel">
-              <option *ngFor="let pow of cancha" [value]="pow">{{pow}}</option>
-            </select>
-            <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
-              Power is required
-            </div>
+            <select class="form-control" id="cancha"
+        required
+        [(ngModel)]="canchaSeleccionada" name="cancha"
+        (change)="mostrarInformacionCancha()">
+        <option *ngFor="let pow of cancha" [value]="pow">{{pow.nombreCancha}}</option>
+</select>
+
         <br>
         <br>
-        <p>Nombre: xxxxxxxxxxx</p>
-        <p>Capacidad Maxima: xxxxxxxxxx</p>
-        <br>
+        <p>Numero de Identificación: {{ numeroIdentificacion }}</p>
+        <p>Hora que abre: {{ horaApertura }}</p>
+        <p>Hora que cierra: {{ horaCierre }}</p>
         <br>
           <app-calendario></app-calendario>
         </div>

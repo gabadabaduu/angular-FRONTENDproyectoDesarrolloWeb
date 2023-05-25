@@ -8,22 +8,21 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class ReservaControllerService {
 
-  constructor(private http: HttpClient, private _sanitizer: DomSanitizer) { 
-  }  
+  constructor(private http: HttpClient, private _sanitizer: DomSanitizer) { }
   getData(fecha: string, horaInicio: number, horaFin: number, nombreUsuario: string, nombreCancha: string) {
-    const url = `http://localhost:8080/Reserva?fecha=${fecha}&horai=${horaInicio}&horaf=${horaFin}&usuario=${nombreUsuario}&cancha=${nombreCancha}`;
+    const url = `jdbc:mysql://66.70.137.253:3306/grupo1`;
     return this.http.get(url);
   }
   
     reservarCancha(username: string, password: string, fecha: string, horaInicio: number, horaFin: number, nombreUsuario: string, nombreCancha: string) {
-  const url = `http://localhost:8080/Reserva?fecha=${fecha}&horai=${horaInicio}&horaf=${horaFin}&usuario=${nombreUsuario}&cancha=${nombreCancha}`;
+  const url = `jdbc:mysql://66.70.137.253:3306/grupo1`;
   const credentials = { username, password };
 
   return this.http.post(url, credentials);
 }
 
 cancelarReserva(username: string, password: string, fecha: string, horaInicio: number, horaFin: number, nombreUsuario: string, nombreCancha: string) {
-  const url = `http://localhost:8080/Reserva`;
+  const url = `jdbc:mysql://66.70.137.253:3306/grupo1`;
   const credentials = { username, password };
   const body = { fecha, horaInicio, horaFin, nombreUsuario, nombreCancha };
 

@@ -23,7 +23,7 @@ export class ContrasenaFormsComponent {
   skyDog(): password {
   const mypassword =  new password('gug', 'SkyDog',
                      'Fetch any object at any distance');
-  console.log('este usuario es' + mypassword.username); // "My hero is called SkyDog"
+  console.log('este usuario es' + mypassword.username); 
   return mypassword;
   }
   

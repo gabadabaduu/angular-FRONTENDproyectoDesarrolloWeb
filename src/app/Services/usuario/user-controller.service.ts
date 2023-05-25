@@ -11,18 +11,18 @@ export class UserControllerService {
   constructor(private http: HttpClient) { }
 
   getData(fecha: string, horaInicio: number, horaFin: number, nombreUsuario: string, nombreCancha: string) {
-    const url = `http://localhost:8080/Usuario?fecha=${fecha}&horai=${horaInicio}&horaf=${horaFin}&usuario=${nombreUsuario}&cancha=${nombreCancha}`;
+    const url = `jdbc:mysql://66.70.137.253:3306/grupo1`;
     return this.http.get(url);
   }
 
   login(username: string, password: string) {
     const credentials = { username, password };
-    return this.http.post('http://localhost:8080/Usuario', credentials);
+    return this.http.post(`jdbc:mysql://66.70.137.253:3306/grupo1`, credentials);
   }
   
   
   crearUsuario(nombre: string, contraseña: string) {
-    const url = `http://localhost:8080/Usuario/crearUsuario`;
+    const url = `jdbc:mysql://66.70.137.253:3306/grupo1`;
     const body = {
       nombre: nombre,
       contraseña: contraseña
@@ -33,7 +33,7 @@ export class UserControllerService {
   
 
   logOut() {
-    return this.http.post('http://localhost:8080/Usuario', null);
+    return this.http.post(`jdbc:mysql://66.70.137.253:3306/grupo1`, null);
   }
   
 }
