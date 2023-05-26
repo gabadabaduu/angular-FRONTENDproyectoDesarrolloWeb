@@ -9,6 +9,7 @@ import { CanchaControllerService } from 'src/app/Services/Cancha/cancha-controll
 })
 export class CanchasComponent {
   cancha: canchas[] = [];
+  nombreCancha: any;
   canchaSeleccionada!: canchas;
   numeroIdentificacion: any;
   horaCierre: any;
@@ -17,10 +18,10 @@ export class CanchasComponent {
 
   model = new canchas(18, 'fecha', 'nombre de cancha', 7, 15);
 
-  constructor(private canchaService: CanchaControllerService) {
-    canchaService.getData('Nombre de cancha').forEach((data: any) => {
+  constructor(public canchaService: CanchaControllerService) {
+    canchaService.gettodaslascanchas().subscribe((data: any) => {
       this.cancha = data;
-    })
+    });
   }
 
     mostrarInformacionCancha() {
@@ -29,17 +30,12 @@ export class CanchasComponent {
         this.horaApertura = this.canchaSeleccionada.horaInicio;
         this.horaCierre = this.canchaSeleccionada.horaFin;
       } else {
-        // Limpiar la información si no hay ninguna cancha seleccionada
         this.numeroIdentificacion = '';
         this.horaApertura = '';
         this.horaCierre = '';
       }
     }
     
-
-   }
-
-
- 
+}
 
   

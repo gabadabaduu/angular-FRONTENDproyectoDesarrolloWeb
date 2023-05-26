@@ -1,24 +1,51 @@
 <div class="container">
-    <div [hidden]="submitted">
-      <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
-        <div class="form-group">
-          <label for="name"></label>
-          <input type="text" class="form-control" id="name"
-                 required
-                 [(ngModel)]="model.nombreCancha" name="name"
-                 #name="ngModel">
-          <div [hidden]="name.valid || name.pristine"
-               class="alert alert-danger">
-            Por favor ingrese el nombre del equipo correctamente
-          </div>
+  <div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" #canchaForm="ngForm">
+      <div class="form-group">
+        <label for="nombreCancha">Nombre de la Cancha</label>
+        <input type="text" class="form-control" id="nombreCancha"
+               required
+               [(ngModel)]="model.nombreCancha" name="nombreCancha"
+               #nombreCancha="ngModel">
+        <div [hidden]="nombreCancha.valid || nombreCancha.pristine"
+             class="alert alert-danger">
+          Por favor ingrese el nombre de la cancha correctamente
         </div>
-        <br>
-        <br>
-        <br>
-
-        <br>
-        <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
-        &nbsp;&nbsp;
-        <button type="button" class="btn btn-default" (click)="newSubmit()">Reiniciar</button>
-      </form>
-    </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="Fecha">Fecha</label>
+        <input type="text" class="form-control" id="Fecha"
+               required
+               [(ngModel)]="model.fecha" name="Fecha"
+               #fecha="ngModel">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="horaInic">Hora que abre</label>
+        <input type="number" class="form-control" id="horaInic"
+               required
+               [(ngModel)]="model.horaInicio" name="horaInic"
+               #horaInicio="ngModel">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="horaFin">Hora que cierra</label>
+        <input type="number" class="form-control" id="horaFin"
+               required
+               [(ngModel)]="model.horaFin" name="horaFin"
+               #horaFin="ngModel">
+      </div>
+      <br>
+      <button type="submit" class="btn btn-default">Crear Cancha</button>
+      &nbsp;&nbsp;
+      <button type="button" class="btn btn-default" (click)="newSubmit()">Reiniciar</button>
+    </form>
+  </div>
+  <div *ngIf="showSuccessMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="showErrorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+</div>
