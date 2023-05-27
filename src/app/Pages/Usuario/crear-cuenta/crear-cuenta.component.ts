@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserControllerService } from 'src/app/Services/usuario/user-controller.service';
 import { Usuario } from 'src/app/Modelo/usuario';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-crear-cuenta',
@@ -9,23 +10,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./crear-cuenta.component.css']
 })
 export class CrearCuentaComponent {
+  model = new Usuario(18, 'Usuario', 'Contraseña');
   showSuccessMessage: boolean = false;
   successMessage: string = '';
   showErrorMessage: boolean = false;
   errorMessage: string = '';
 
-  constructor(private UserController : UserControllerService,  private router: Router){}
+  Usuario: string ='';
+  Password: string ='';
 
-  model = new Usuario(18, 'Usuario', 'Contraseña');
-  
   submitted = false;
   
+  constructor(private UserController : UserControllerService,  private router: Router, private http: HttpClient){}
+
   onSubmit() {
-    this.UserController.crearUsuario(this.model.name, this.model.password)
+    const usuario= {
+      usuario: this.Usuario,
+      pass: this.Password
+    };
+
+    const url = `http://localhost:8080/Usuario?Usuario=${this.model.name}&Clave=${this.model.password}`;
+
+    this.http.post(url, usuario)
       .subscribe(
         response => {
           console.log(response); // Imprimir la respuesta en la consola
-  
           // Actualizar la interfaz de usuario
           this.showSuccessMessage = true;
           this.successMessage = 'Usuario creado con éxito';
@@ -48,12 +57,7 @@ export class CrearCuentaComponent {
   this.model = new Usuario(42,'Usuario','Contraseña');
   }
   
-  VUsuario(): Usuario {
-  const myUsuario =  new Usuario(42, 'Maria',
-                     '12345678');
-  console.log('Bienvenido ' + myUsuario.name); //
-  return myUsuario;
-  }
+
   
   
 }

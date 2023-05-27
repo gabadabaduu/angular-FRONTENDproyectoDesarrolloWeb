@@ -12,26 +12,31 @@
     </div>
     
     <div class="main_content">
-        <div class="header">Bienvenido al gestor de canchas.</div>  
-        <div class="info">
-          <div>Porfavor Selectionar la cancha que desea para conocer su información</div>
-          <div class="form-group">
-            <label for="equipo"></label>
-            <select class="form-control" id="cancha"
-        required
-        [(ngModel)]="canchaSeleccionada" name="cancha"
-        (change)="mostrarInformacionCancha()">
-        <option *ngFor="let pow of cancha" [value]="pow">{{pow.nombreCancha}}</option>
-</select>
-
-        <br>
-        <br>
-        <p>Numero de Identificación: {{ numeroIdentificacion }}</p>
-        <p>Hora que abre: {{ horaApertura }}</p>
-        <p>Hora que cierra: {{ horaCierre }}</p>
-        <br>
-          <app-calendario></app-calendario>
+      <div class="header">Bienvenido al gestor de canchas.</div>
+      <div class="info">
+        <div>Por favor selecciona la cancha de la que deseas conocer su información:</div>
+        <div class="form-group">
+          <label for="cancha">Seleccionar Cancha:</label>
+          <select class="form-control" id="cancha" [(ngModel)]="canchaSeleccionada" name="cancha" (change)="mostrarInformacionCancha()">
+            <option *ngFor="let pow of cancha" [ngValue]="pow">{{pow.nombreCancha}}</option>
+          </select>
         </div>
+        <br>
+        <br>
+        <div *ngIf="canchaSeleccionada">
+          <p>Numero de Identificación: {{ numeroIdentificacion }}</p>
+          <p>Hora de apertura: {{ horaApertura }}</p>
+          <p>Hora de cierre: {{ horaCierre }}</p>
+        </div>
+        <br>
+        <app-calendario></app-calendario>
       </div>
     </div>
-</div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
