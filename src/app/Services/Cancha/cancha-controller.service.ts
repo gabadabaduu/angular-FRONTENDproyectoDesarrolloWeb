@@ -10,13 +10,11 @@ export class CanchaControllerService {
   constructor(private http: HttpClient) { }
 
   gettodaslascanchas() {
-    const url =  `http://localhost:8080/Canchas `;
-    return this.http.get(url);
+    return this.http.get(`http://localhost:8080/Canchas `);
   }
 
-  getData(nombreCancha: string, cancha : canchas) {
-    const url =  `http://localhost:8080/Canchas/nombre_canchas/nombreCancha=${nombreCancha} `;
-    return this.http.get(url);
+  getData(nombreCancha: string) {
+    return this.http.get(`http://localhost:8080/Canchas/nombre_canchas/nombreCancha=${nombreCancha} `);
   }
   
 

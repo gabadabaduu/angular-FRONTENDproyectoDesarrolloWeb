@@ -22,9 +22,15 @@ export class CanchasComponent {
     });
   }
 
+
+ngOnInit() {
+  this.canchaService.getData(this.nombreCancha).subscribe(() => {
+  });
+}
+
   mostrarInformacionCancha() {
     if (this.canchaSeleccionada) {
-      this.canchaService.getData(this.canchaSeleccionada.nombreCancha, this.canchaSeleccionada).subscribe((data: any) => {
+      this.canchaService.getData(this.canchaSeleccionada.nombreCancha).subscribe((data: any) => {
         this.numeroIdentificacion = data.numeroIdentificacion;
         this.horaApertura = data.horaApertura;
         this.horaCierre = data.horaCierre;
@@ -47,7 +53,7 @@ export class CanchasComponent {
 
     this.http.post(url, canch).subscribe(
       response => {
-        this.mostrarInformacionCancha();
+        this.ngOnInit();
         console.log(response);
         // Actualizar la interfaz de usuario
         // Redirigir a otra página
