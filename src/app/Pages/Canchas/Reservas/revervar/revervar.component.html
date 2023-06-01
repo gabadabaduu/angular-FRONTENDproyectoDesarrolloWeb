@@ -7,6 +7,29 @@
 <div class="container">
     <div [hidden]="submitted">
       <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+        <br>
+        <div class="form-group">
+            <label for="horaInicio"></label>
+            <input type="text" class="form-control" id="horaInicio"
+                   required
+                   [(ngModel)]="model.hora_inicio" name="name"
+                   #name="ngModel">
+            <div [hidden]="name.valid || name.pristine"
+                 class="alert alert-danger">
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="horaFin"></label>
+            <input type="text" class="form-control" id="horaFin"
+                   required
+                   [(ngModel)]="model.hora_final" name="horaFin"
+                   #name="ngModel">
+            <div [hidden]="name.valid || name.pristine"
+                 class="alert alert-danger">
+            </div>
+          </div>
+        <br>
         <div class="form-group">
           <label for="fecha"></label>
           <input type="text" class="form-control" id="fecha"
@@ -18,42 +41,6 @@
           </div>
         </div>
         <br>
-        <br>
-        <div class="form-group">
-          <label for="nombreCancha"></label>
-          <select class="form-control" id="nombreCancha"
-                  required
-                  [(ngModel)]="model.nombreCancha" name="equipo"
-                  #power="ngModel">
-            <option *ngFor="let pow of cancha" [value]="pow">{{pow}}</option>
-          </select>
-          <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
-            Se necesita seleccionar una Cancha
-          </div>
-        </div>
-        <br>
-        <div class="form-group">
-            <label for="horaInicio"></label>
-            <input type="text" class="form-control" id="horaInicio"
-                   required
-                   [(ngModel)]="model.horaInicio" name="name"
-                   #name="ngModel">
-            <div [hidden]="name.valid || name.pristine"
-                 class="alert alert-danger">
-            </div>
-          </div>
-          <br>
-          <div class="form-group">
-            <label for="horaFin"></label>
-            <input type="text" class="form-control" id="horaFin"
-                   required
-                   [(ngModel)]="model.horaFin" name="horaFin"
-                   #name="ngModel">
-            <div [hidden]="name.valid || name.pristine"
-                 class="alert alert-danger">
-            </div>
-          </div>
-        <br>
         <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
         &nbsp;&nbsp;
         <button type="button" class="btn btn-default" (click)="newSubmit()">Reiniciar</button>
@@ -61,6 +48,15 @@
     </div>
 
 </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
     <br>
     <br>

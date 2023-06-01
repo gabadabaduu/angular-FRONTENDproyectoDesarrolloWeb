@@ -13,36 +13,34 @@ export class UsuarioFormsComponent {
   showErrorMessage: boolean = false;
   errorMessage: string = '';
 
-constructor(private UserController : UserControllerService, private router: Router, private http: HttpClient){}
+  constructor(private userController: UserControllerService, private router: Router, private http: HttpClient ) {}
+
+  login(usuario: string, password: string) {
+    return this.http.post<any>('/Usuario/iniciarSesion', { usuario, password });
+  }
 
   model = new Usuario(18, 'Usuario', 'Contraseña');
-  
   submitted = false;
   
   onSubmit() {
-    this.http.post(this.model.name, this.model.password)
-      .subscribe(
-        response => {
-          console.log(response);
-        this.router.navigate(['/Canchas']);
-          
-        },
-        error => {
-          // Manejar el error en caso de fallo
-          console.error(error);
-          this.showErrorMessage = true;
-          this.errorMessage = 'Error al crear la cancha. Por favor, inténtelo nuevamente.';
-        }
-      );
-  }
 
-  
+    this.login(this.model.name, this.model.password).subscribe(
+      response => {
+        // Aquí puedes manejar la respuesta del servidor
+        if (response.respuesta === 'exito') {
+          this.router.navigate(['/Canchas']);
+          // Inicio de sesión exitoso, realizar acciones necesarias (por ejemplo, redirigir a otra página)
+        } else {
+          // Error de autenticación, mostrar mensaje de error
+        }
+      },
+      error => {
+        // Error en la comunicación con el servidor, mostrar mensaje de error
+      }
+    );
+  }
 
   newHero() {
-  this.model = new Usuario(42,'Usuario','Contraseña');
+    this.model = new Usuario(42, 'Usuario', 'Contraseña');
   }
-  
- 
-  
-  
 }

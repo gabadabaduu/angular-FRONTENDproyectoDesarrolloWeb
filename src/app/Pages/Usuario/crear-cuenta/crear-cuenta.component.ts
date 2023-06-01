@@ -21,7 +21,7 @@ export class CrearCuentaComponent {
 
   submitted = false;
   
-  constructor(private UserController : UserControllerService,  private router: Router, private http: HttpClient){}
+  constructor(private UserController : UserControllerService,  private router: Router , private http: HttpClient){}
 
   onSubmit() {
     const usuario= {
@@ -52,12 +52,8 @@ export class CrearCuentaComponent {
         }
       );
   }
-
   newUsuario() {
   this.model = new Usuario(42,'Usuario','Contraseña');
   }
-  
-
-  
-  
+ 
 }
