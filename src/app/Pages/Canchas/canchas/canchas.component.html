@@ -4,7 +4,6 @@
         <ul>
             <li><a routerLink="/Crear-Cancha">Crear Cancha</a></li>
             <li><a routerLink="/Revervar">Reservar Cancha</a></li>
-            <li><a routerLink="/Cancelar">Cancelar Reserva</a></li>
             <li><a href="#"><i class="fas fa-project-diagram"></i>Cerrar Sesion</a></li>
             
         </ul>
@@ -15,23 +14,27 @@
       <div class="header">Bienvenido al gestor de canchas.</div>
       <div class="info">
         <div>Por favor selecciona la cancha de la que deseas conocer su información:</div>
+        <div class="scrollable-container">
         <div class="form-group">
-          <label for="cancha">Seleccionar Cancha:</label>
+          <div class="scrollable-container">
+          <label for="models">Seleccionar Cancha:</label>
           <select class="form-control" id="cancha" [(ngModel)]="canchaSeleccionada" name="cancha" (change)="mostrarInformacionCancha()">
-            <option *ngFor="let pow of cancha" [ngValue]="pow">{{pow.nombreCancha}}</option>
+            <option *ngFor="let pow of models" [ngValue]="pow">{{pow.nombreCancha}}</option>
           </select>
+          </div>
         </div>
         <br>
         <br>
-        <div *ngIf="canchaSeleccionada">
-          <p>Numero de Identificación: {{ numeroIdentificacion }}</p>
-          <p>Hora de apertura: {{ horaApertura }}</p>
-          <p>Hora de cierre: {{ horaCierre }}</p>
+        <div *ngFor="let model of models" class="model-item">
+          <p>Numero de Identificación: {{ model.id }}</p>
+          <p>Hora de apertura: {{ model.horaInicio }}</p>
+          <p>Hora de cierre: {{ model.horaFin }}</p>
         </div>
         <br>
         <app-calendario></app-calendario>
       </div>
     </div>
+  </div>
   </div>
   
   

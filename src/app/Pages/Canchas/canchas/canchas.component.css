@@ -87,3 +87,8 @@ body{
 .wrapper .main_content .info div{
   margin-bottom: 20px;
 }
+
+.scrollable-container {
+  max-height: 300px; 
+  overflow-y: auto;
+}
